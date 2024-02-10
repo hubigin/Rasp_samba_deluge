@@ -15,13 +15,22 @@ Server de partage de fichier et de téléchargement de torrent
 
   ## Configurer le disque
 Voire l'état du disque
-'''
+```
 lsblk
-'''
+```
 Créer repertoir, monter disque, creation entré dans /etc/fstav
-'''
+```
 sudo -s
 mkdir /media/5to
 mount /dev/sda1 /media/5to
+echo "UUID=$(blkid --match-tag UUID | grep "/dev/sda1" | cut -d\" -f2) /media/5to $(blkid --match-tag TYPE | grep "/dev/sda1" | cut -d\" -f2) defaults,noatime 0 2 " >> /etc/fstab
+mount -a 
+```
 
-'''
+
+
+
+note
+```
+#echo "UUID=$(fdisk -l | grep -A 7 "/dev/sda" | grep "identifier" | cut -d' ' -f3) /media/5to $(df -Th | grep "/dev/sda1" | cut -d' ' -f7) defaults,noatime 0 2 " >> /etc/fstab
+```

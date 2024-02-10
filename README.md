@@ -43,13 +43,21 @@ nano /etc/samba/smb.conf
    guest ok = no
    read only = no
    browseable = yes
-   valid users = partage
+   valid users = @5to
 ```
 restart service samba
 ```
 systemctl restart smbd
 ```
-
+creer group 5to ajouter uner utilisater
+```
+adduser lune
+smbpasswd -a lune
+groupadd 5to
+gpasswd -a lune 5to
+chgrp -R  5to /media/5to/
+chmod -R g+rw /media/5to/
+```
 ## Installer deluge
 
 

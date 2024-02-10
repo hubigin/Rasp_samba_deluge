@@ -37,7 +37,7 @@ Ajouter les ligne à la fin du fichier samba
 nano /etc/samba/smb.conf
 ```
 ```
-[partage]
+[5to]
    comment = Partage de données
    path = /media/5to
    guest ok = no
@@ -45,6 +45,13 @@ nano /etc/samba/smb.conf
    browseable = yes
    valid users = partage
 ```
+restart service samba
+```
+systemctl restart smbd
+```
+
+## Installer deluge
+
 
 note
 ```

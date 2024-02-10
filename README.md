@@ -11,3 +11,17 @@ Server de partage de fichier et de téléchargement de torrent
   * ssh : oui
   * wifi : ou
 - Ip scanner : https://www.advanced-ip-scanner.com/fr/download/
+- Se conneceter en ssh
+
+  ## Configurer le disque
+Voire l'état du disque
+'''
+lsblk
+'''
+Créer repertoir, monter disque, creation entré dans /etc/fstav
+'''
+sudo -s
+mkdir /media/5to
+mount /dev/sda1 /media/5to
+
+'''

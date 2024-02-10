@@ -34,9 +34,8 @@ systemctl enable smbd
 ```
 Ajouter les ligne à la fin du fichier samba
 ```
-nano /etc/samba/smb.conf
-```
-```
+cp /etc/samba/smb.conf /etc/samba/.smb.conf.bak
+cat << ENDCONFiGSAMBA > /etc/samba/smb.conf
 [global]
 workgroup = WORKGROUP
 
@@ -46,20 +45,103 @@ workgroup = WORKGROUP
    read only = no
    browseable = yes
    valid users = lune
+ENDCONFiGSAMBA
+
 ```
 restart service samba
 ```
 systemctl restart smbd
 ```
-creer group 5to ajouter uner utilisater
+creer group 5to ajouter uner utilisateur
 ```
 adduser lune
 smbpasswd -a lune
 ```
 ## Installer deluge
+https://influence-pc.fr/01-04-2017-installation-de-deluge-sur-debian-8-comme-interface-web-de-telechargement-de-torrents
+```
+apt-get install deluged deluge-web deluge-console -y
+adduser --system  --gecos "Deluge Service" --disabled-password --group deluge
+```
+
+Créez le fichier /etc/systemd/system/deluged.service :
+```
+[Unit]
+Description=Deluge Bittorrent Client Daemon
+After=network-online.target
+
+[Service]
+Type=simple
+User=deluge
+Group=deluge
+UMask=000
+
+ExecStart=/usr/bin/deluged -d
+
+Restart=on-failure
+
+# Configures the time to wait before service is stopped forcefully.
+TimeoutStopSec=300
+
+[Install]
+WantedBy=multi-user.target
+```
+Puis exécutez :
+```
+systemctl start deluged
+systemctl enable /etc/systemd/system/deluged.service
+```
+
+Créez le fichier /etc/systemd/system/deluge-web.service :
+```
+[Unit]
+Description=Deluge Bittorrent Client Web Interface
+After=network-online.target
+
+[Service]
+Type=simple
+
+User=deluge
+Group=deluge
+UMask=027
+
+ExecStart=/usr/bin/deluge-web
+
+Restart=on-failure
+
+[Install]
+WantedBy=multi-user.target
+```
+Et enfin :
+```
+systemctl start deluge-web
+systemctl enable /etc/systemd/system/deluge-web.service
+```
+
+### Configuration initiale
+
+On passe en user deluge :
+```
+su --shell /bin/bash --login deluge
+```
+On créé un utilisateur par défaut pour le démon :
+```
+echo "deluge:deluge:10" >> ~/.config/deluge/auth
+```
+On autorise l’interface web à s’y connecter :
+```
+deluge-console "config -s allow_remote True"
+deluge-console "config allow_remote"
+```
+et on redémarre la machine !
+
+### Tips
+Une fois installé, connectez vous sur l’interface avec les identifiants que vous avez choisi :
+
+> http://<serveur>:8112
 
 
-note
+Anexes
 ```
 #echo "UUID=$(fdisk -l | grep -A 7 "/dev/sda" | grep "identifier" | cut -d' ' -f3) /media/5to $(df -Th | grep "/dev/sda1" | cut -d' ' -f7) defaults,noatime 0 2 " >> /etc/fstab
 ```

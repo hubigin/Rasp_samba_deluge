@@ -27,6 +27,7 @@ echo "UUID=$(blkid --match-tag UUID | grep "/dev/sda1" | cut -d\" -f2) /media/5t
 mount -a 
 ```
 ## Installer samba
+https://www.it-connect.fr/serveur-de-fichiers-debian-installer-et-configurer-samba-4/
 ```
 apt-get install samba
 systemctl enable smbd
@@ -42,7 +43,7 @@ nano /etc/samba/smb.conf
    guest ok = no
    read only = no
    browseable = yes
-  valid users = @partage
+   valid users = partage
 ```
 
 note

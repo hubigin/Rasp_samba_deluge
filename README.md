@@ -9,4 +9,5 @@ Server de partage de fichier et de téléchargement de torrent
 - configurer Image
   * nom : mars
   * ssh : oui
-  * wifi : oui
+  * wifi : ou
+- Ip scanner : https://www.advanced-ip-scanner.com/fr/download/

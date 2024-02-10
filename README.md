@@ -35,14 +35,15 @@ Ajouter les ligne à la fin du fichier samba
 ```
 nano /etc/samba/smb.conf
 ```
->[partage]
->   comment = Partage de données
->   path = /media/5to
->   guest ok = no
->   read only = no
->   browseable = yes
->  valid users = @partage
-
+```
+[partage]
+   comment = Partage de données
+   path = /media/5to
+   guest ok = no
+   read only = no
+   browseable = yes
+  valid users = @partage
+```
 
 note
 ```

@@ -141,6 +141,25 @@ Une fois installé, connectez vous sur l’interface avec les identifiants que v
 > http://<serveur>:8112
 
 
+
+
+documentation
+ apt-get install python python-twisted python-openssl python-setuptools intltool python-xdg python-chardet geoip-database python-libtorrent python-notify python-pygame python-glade2 librsvg2-common xdg-utils python-mako -y
+ 
+
+mars
+
+apt-get install python3 python3-twisted python3-openssl python3-setuptools intltool python3-xdg python3-chardet geoip-database python3-libtorrent python3-pygame librsvg2-common xdg-utils python3-mako -y
+apt-get install git -y
+git clone git://deluge-torrent.org/deluge.git
+cd clone
+git branch -a 
+git checkout master
+git pull
+python setup.py install
+python setup.py clean -a
+
+
 Anexes
 ```
 #echo "UUID=$(fdisk -l | grep -A 7 "/dev/sda" | grep "identifier" | cut -d' ' -f3) /media/5to $(df -Th | grep "/dev/sda1" | cut -d' ' -f7) defaults,noatime 0 2 " >> /etc/fstab

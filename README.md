@@ -142,6 +142,7 @@ Une fois installé, connectez vous sur l’interface avec les identifiants que v
 
 
 
+https://dev.deluge-torrent.org/wiki/Installing/Source
 
 documentation
  apt-get install python python-twisted python-openssl python-setuptools intltool python-xdg python-chardet geoip-database python-libtorrent python-notify python-pygame python-glade2 librsvg2-common xdg-utils python-mako -y

@@ -1,0 +1,42 @@
+    1  lsblk
+    2  ls /media/
+    3  ls
+    4  mkdir /media/5to
+    5  sudo -s
+    6  cat /etc/fstab
+    7  fdisk -ld
+    8  fdisk -l
+    9  suod -s
+   10  sudo -s
+   11  config
+   12  sudo -s
+   13  ip a
+   14  sudo -s
+   15  ls
+   16  sudo -s
+   17  systmctl status deluge*
+   18  systemctl status deluge*
+   19  systemctl status deluge-web.service
+   20  sudo-s
+   21  sudo -s
+   22  su --shell /bin/bash --login lune
+   23  sudo -s
+   24  ls
+   25  history
+   26  sudo -s
+   27  mkdir ~/.config/pip
+   28  mkdir -R ~/.config/pip
+   29  mkdir -P ~/.config/pip
+   30  mkdir -p ~/.config/pip
+   31  nano  ~/.config/pip/pip.conf
+   32  pip3 install --upgrade twisted
+   33  deluged
+   34  sudo s-
+   35  sudo -s
+   36  exit
+   37  sudo -s
+   38  sudo -su
+   39  sudo -s
+   40  deluge
+   41  sudo -s
+   42  history

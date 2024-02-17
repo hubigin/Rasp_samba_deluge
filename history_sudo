@@ -1,0 +1,291 @@
+    1  mkdir /media/5to
+    2  mount sda1 /media/5to
+    3  mount /dev/sda1 /media/5to
+    4  ls /media/5to/
+    5  fdisk -l
+    6  fdisk -l | grep -A 7 "/dev/sda"
+    7  fdisk -l | grep -A 7 "/dev/sda" | grep "identifier"
+    8  fdisk -l | grep -A 7 "/dev/sda" | grep "identifier" | cut -d' ' -f"
+    9  fdisk -l | grep -A 7 "/dev/sda" | grep "identifier" | cut -d' ' -f3
+   10  echo "$(fdisk -l | grep -A 7 "/dev/sda" | grep "identifier" | cut -d' ' -f3) defaults,noatime 0 2 "
+   11  echo "$(fdisk -l | grep -A 7 "/dev/sda" | grep "identifier" | cut -d' ' -f3) /media/5to defaults,noatime 0 2 "
+   12  mount -l
+   13  mount -l | grep sda
+   14  df -Th | grep "^/dev"
+   15  df -Th | grep "^/dev"
+   16  df -Th | grep "/dev/sda1"
+   17  df -Th | grep "/dev/sda1" | cut -d ' '-f 2
+   18  df -Th | grep "/dev/sda1" | cut -d' ' -f2
+   19  df -Th | grep "/dev/sda1" | rev | cut -d' ' -f2
+   20  df -Th | grep "/dev/sda1" | rev | cut -d' ' -f5
+   21  df -Th | grep "/dev/sda1" | rev | cut -d' ' -f7
+   22  df -Th | grep "/dev/sda1" | rev | cut -d' ' -f8
+   23  df -Th | grep "/dev/sda1" | rev | cut -d' ' -f20
+   24  df -Th | grep "/dev/sda1" | rev | cut -d' ' -f18
+   25  df -Th | grep "/dev/sda1" | rev | cut -d' ' -f17
+   26  df -Th | grep "/dev/sda1" | rev | cut -d' ' -f8
+   27  df -Th | grep "/dev/sda1" | rev | cut -d' ' -f10
+   28  df -Th | grep "/dev/sda1" | rev | cut -d' ' -f11
+   29  df -Th | grep "/dev/sda1" | rev | cut -d' ' -f11 |rev
+   30  df -Th | grep "/dev/sda1" | cut -d' ' -f6
+   31  df -Th | grep "/dev/sda1" | cut -d' ' -f7
+   32  echo "$(fdisk -l | grep -A 7 "/dev/sda" | grep "identifier" | cut -d' ' -f3) /media/5to $(df -Th | grep "/dev/sda1" | cut -d' ' -f7) defaults,noatime 0 2 " > /etc/fstab
+   33  nano /etc/fstab
+   34  mount -a
+   35  echo "UUID=$(fdisk -l | grep -A 7 "/dev/sda" | grep "identifier" | cut -d' ' -f3) /media/5to $(df -Th | grep "/dev/sda1" | cut -d' ' -f7) defaults,noatime 0 2 " >> /etc/fstab
+   36  mount -a
+   37  vi /etc/fstab
+   38  mount -a
+   39  echo "UUID=$(fdisk -l | grep -A 7 "/dev/sda1" | grep "identifier" | cut -d' ' -f3) /media/5to $(df -Th | grep "/dev/sda1" | cut -d' ' -f7) defaults,noatime 0 2 " >> /etc/fstab
+   40  mount -a
+   41  vi /etc/fstab
+   42  blkid
+   43  blkid | grep /dev/sda | cut -d'UUID=' -f2
+   44  blkid --help
+   45  blkid --match-tag type
+   46  blkid --match-tag TYPE
+   47  blkid --match-tag TYPE | grep "/dev/sda1" | cut -d'\"' -f2
+   48  blkid --match-tag TYPE | grep "/dev/sda1" | cut -d\" -f2
+   49  blkid --match-tag UUID | grep "/dev/sda1" | cut -d\" -f2
+   50  echo "UUID=$(blkid --match-tag UUID | grep "/dev/sda1" | cut -d\" -f2) /media/5to $(blkid --match-tag TYPE | grep "/dev/sda1" | cut -d\" -f2) defaults,noatime 0 2 " >> /etc/fstab
+   51  mount -a
+   52  apt-get install samba
+   53  apt-get install samba -y
+   54  apt-get install samba-common-bin -y
+   55  smbd --version
+   56  systemctl status smbd
+   57  systemctl enable smbd
+   58  nano /etc/samba/smb.conf
+   59  nano /etc/samba/smb.conf
+   60  nano /etc/samba/smb.conf
+   61  systemctl restart smbd
+   62  ip a
+   63  nano /etc/samba/smb.conf
+   64  groupadd 5to
+   65  gpasswd -a hubi 5to
+   66  chgrp -R  g+rw /media/5to/
+   67  chmod -R g+rw /media/5to/
+   68  chgrp -R  5to /media/5to/
+   69  chmod -R g+rw /media/5to/
+   70  systemctl restart smbd
+   71  adduser lune
+   72  gpasswd -a lune 5to
+   73  ls -alh /media/
+   74  ls -alh /media/5to
+   75  chgrp -R  5to /media/5to/
+   76  chmod -R g+rw /media/5to/
+   77  ls -alh /media/5to
+   78  nano /etc/samba/smb.conf
+   79  systemctl restart smbd
+   80  smbpasswd -a lune
+   81  nano /etc/samba/smb.conf
+   82  /sbin/poweroff
+   83  cp /etc/samba/smb.conf /etc/samba/smb.conf.back
+   84  nano /etc/samba/smb.conf
+   85  vi /etc/samba/smb.conf
+   86  nano /etc/samba/smb.conf
+   87  systemctl restart smbd
+   88  vi /etc/samba/smb.conf
+   89  nano /etc/samba/smb.conf
+   90  systemctl restart smbd
+   91  nano /etc/samba/smb.conf
+   92  nano /etc/hosts
+   93  nano /etc/hosts
+   94  ip a
+   95  cat /etc/network/interfaces
+   96  lst /etc/network/interfaces.d/
+   97  ls /etc/network/interfaces.d/
+   98  nano /etc/samba/smb.conf
+   99  systemctl restart smbd
+  100  nano /etc/samba/smb.conf
+  101  groupdel 5to
+  102  apt-get install deluged deluge-web deluge-console
+  103  apt-get install deluged deluge-web deluge-console -y
+  104  adduser --system  --gecos "Deluge Service" --disabled-password --group deluge
+  105  groupdel deluge
+  106  deluser deluge
+  107  groupdel deluge
+  108  adduser --system  --gecos "Deluge Service" --disabled-password --group lune
+  109  adduser --system  --gecos "Deluge Service" --disabled-password --group deluge
+  110  nano  /etc/systemd/system/deluged.service
+  111  nano /etc/systemd/system/deluge-web.service
+  112  systemctl start deluged
+  113  systemctl enable /etc/systemd/system/deluged.service
+  114  systemctl start deluge-web
+  115  systemctl enable /etc/systemd/system/deluge-web.service
+  116  su --shell /bin/bash --login deluge
+  117  adduser --system  --gecos "Deluge Service" --disabled-password --group deluge
+  118  su --shell /bin/bash --login deluge
+  119  usermod -d /home/deluge deluge
+  120  systemctl stop deluge*
+  121  usermod -d /home/deluge deluge
+  122  su --shell /bin/bash --login deluge
+  123  mkdir /home/deluge
+  124  su --shell /bin/bash --login deluge
+  125  rm /home/deluge/
+  126  rm -RF /home/deluge/
+  127  rm -Rf /home/deluge/
+  128  su --shell /bin/bash --login deluge
+  129  deluser deluge
+  130  groupdel deluge
+  131  adduser --system  --gecos "Deluge Service" --disabled-password --group deluge
+  132  su --shell /bin/bash --login deluge
+  133  deluser deluge
+  134  adduser --system  --gecos "Deluge Service" --disabled-password --group deluge
+  135  su --shell /bin/bash --login deluge
+  136  deluser deluge
+  137  adduser --system  --gecos "Deluge Service" --disabled-password --group deluge
+  138  passwd deluge
+  139  su --shell /bin/bash --login deluge
+  140  deluser deluge
+  141  adduser  --gecos "Deluge Service" --disabled-password --group deluge
+  142  su --shell /bin/bash --login deluge
+  143  adduser --system  --gecos "Deluge Service" --disabled-password --group deluge
+  144  deluser deluge
+  145  groupdel deluge
+  146  adduser --group lune
+  147  nano /etc/systemd/system/deluge-web.service
+  148  nano /etc/systemd/system/deluged.service
+  149  su --shell /bin/bash --login lune
+  150  systemctl start deluged
+  151  systemctl enable /etc/systemd/system/deluged.service
+  152  systemctl start deluge-web
+  153  systemctl enable /etc/systemd/system/deluge-web.service
+  154  /sbin/reboot
+  155  sytecmctl status deluge*
+  156  systemctl status deluge*
+  157  systemctl enable /etc/systemd/system/deluge-web.service
+  158  systemctl start deluge-web
+  159  sytecmctl status deluge*
+  160  systemctl status deluge*
+  161  nano /etc/systemd/system/deluged.service
+  162  nano /etc/systemd/system/deluge-web.service
+  163  ls /var/log/deluged/
+  164  ls /var/log/deluged/daemon.log
+  165  cat /var/log/deluged/daemon.log
+  166  nano /var/lib/deluged/config
+  167  ls /var/lib/deluged/config
+  168  ls /var/lib/deluged/config/auth
+  169  cat /var/lib/deluged/config/auth
+  170  echo "lune:lune:10">> /var/lib/deluged/config/auth
+  171  ls /var/log/
+  172  /sbin/reboot
+  173  deluge-console "config -s allow_remote True"
+  174  locale
+  175  apt-get -t jessie-backports install deluged deluge-web deluge-console
+  176  systemctl stop deluge*
+  177  //usr/bin/deluged -d
+  178  /usr/bin/deluged -d
+  179  /usr/bin/deluged -d&
+  180  /usr/bin/delug-web &
+  181  /usr/bin/deluge-web &
+  182  dietpi-software reinstall 45
+  183  dietpi-software reinstall 45
+  184  echo "deluge:deluge:10" >> ~/.config/deluge/auth
+  185  deluge-console "config -s allow_remote True"
+  186  deluge-console
+  187  apt-get remove deluge
+  188  apt-get remove deluge-web
+  189  deluge-conseole
+  190  deluge-console
+  191  apt-get remove deluge-console
+  192  apt-get install deluged deluge-web deluge-console -y
+  193  deluge-console "config -s allow_remote True"
+  194  su --shell /bin/bash --login lune
+  195  su --shell /bin/bash --login lune
+  196  su --shell /bin/bash --login lune
+  197  rm /etc/systemd/system/deluge*
+  198  apt-get install deluged deluge-web deluge-console -y
+  199  apt-get install deluged deluge-web deluge-console -y
+  200  apt-get remove deluged deluge-web deluge-console -y
+  201  history
+  202  deluge-console "config -s allow_remote True"
+  203  apt-get install deluged deluge-web deluge-console -y
+  204  apt install deluged deluge-web deluge-console python3-mako
+  205  deluged
+  206  ls /var/lib/deluged/config/
+  207  cat /var/lib/deluged/config/auth
+  208  nano /var/lib/deluged/config/auth
+  209  deluged
+  210  apt remove deluged deluge-web deluge-console python3-mako
+  211  rm -RF /var/lib/deluged/
+  212  apt install deluged deluge-web deluge-console python3-mako
+  213  deluged
+  214  pip3 install --upgrade twisted
+  215  apt install deluged deluge-web deluge-console python3-makopip3 install --upgrade twistedapt-get update
+  216  apt-get install deluged deluge-web deluge-console  python3-mako -y
+  217  apt-get install python3-pip
+  218  apt-get update
+  219  apt-get install python3-pip
+  220  pip3 install --upgrade twisted
+  221   apt install
+  222  apt-get install python3-xyz
+  223  apt-get install python3-fukk
+  224  apt-get install python3-full
+  225  pip3 install --upgrade twisted
+  226  nano  ~/.config/pip/pip.conf
+  227  mkdir .config
+  228  mkdir .config/pip
+  229  nano  ~/.config/pip/pip.conf
+  230  rm -Rf .config/
+  231  mkdir ~/.config/pip
+  232  nano  ~/.config/pip/pip.conf
+  233  pip3 install --upgrade twisted
+  234  exit
+  235  pkillddeluge
+  236  pkill deluge
+  237  deluge
+  238  deluged
+  239  deluge-web -f
+  240  pkill deluge-web
+  241  pkill deluged
+  242  deluged
+  243  deluge-web -f
+  244  pkill deluge-web
+  245  pkill delugeD
+  246  pkill deluged
+  247  pkill -i deluged
+  248  pkill -i deluge-web
+  249  pkill -i deluge
+  250  exit
+  251  nano /var/lib/deluged/config/auth
+  252  pkill -i deluged
+  253  deluged
+  254  deluge-console "config -s allow_remote True"
+  255  pkill -i deluged
+  256  deluge-console "config -s allow_remote True"
+  257  deluge-web -f
+  258  apt remove deluged deluge-web deluge-console python3-mako
+  259   apt-get install python python-twisted python-openssl python-setuptools intltool python-xdg python-chardet geoip-database python-libtorrent python-notify python-pygame python-glade2 librsvg2-common xdg-utils python-mako -y
+  260   apt-get install python3 python3-twisted python3-openssl python3-setuptools intltool python3-xdg python3-chardet geoip-database python3-libtorrent python3-notify python3-pygame python3-glade2 librsvg2-common xdg-utils python3-mako -y
+  261   apt-get install python3 python3-twisted python3-openssl python3-setuptools intltool python3-xdg python3-chardet geoip-database python3-libtorrent python3-notify python3-pygame python3-glade2 librsvg2-common xdg-utils python3-mako -y
+  262   apt-get install python3 python3-twisted python3-openssl python3-setuptools intltool python3-xdg python3-chardet geoip-database python3-libtorrent python3-notify python3-pygame python-glade2 librsvg2-common xdg-utils python3-mako -y
+  263   apt-get install python3 python3-twisted python3-openssl python3-setuptools intltool python3-xdg python3-chardet geoip-database python3-libtorrent python3-notify python3-pygame librsvg2-common xdg-utils python3-mako -y
+  264  apt-get install python
+  265   apt-get install python3 python3-twisted python3-openssl python3-setuptools intltool python3-xdg python3-chardet geoip-database python3-libtorrent python3-pygame librsvg2-common xdg-utils python3-mako -y
+  266  git clone git://deluge-torrent.org/deluge.git
+  267  apt-get install git
+  268  git clone git://deluge-torrent.org/deluge.git
+  269  ls
+  270  cd deluge
+  271  git branch
+  272  git checkout 1.3-stable
+  273  git checkout
+  274  git status
+  275  git branch -a
+  276  git checkout master
+  277  git pull
+  278  git status
+  279  ls
+  280  python setup.py install
+  281  pip install zope.interface
+  282  python setup.py install
+  283  python setup.py clean -a
+  284  deluge
+  285  deluge2.1
+  286  deluge-web
+  287  /sbin/shutdown
+  288  ping 192.168.1.240
+  289  deluge
+  290  deluge-web
+  291  history
